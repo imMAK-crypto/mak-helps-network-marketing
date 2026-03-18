@@ -12,7 +12,7 @@ export function HomeHero() {
   return (
     <section className="noise relative min-h-[92svh] overflow-hidden">
       <motion.div
-        aria-hidden="true"
+        aria-hidden={true}
         className="absolute inset-0"
         style={{ y, opacity }}
       >

@@ -22,7 +22,12 @@ export function TestimonialCard({
     >
       <div className="flex items-center gap-1">
         {Array.from({ length: rating }).map((_, i) => (
-          <Star key={i} className="h-4 w-4 text-[color:var(--gold)]" fill="currentColor" aria-hidden="true" />
+          <Star
+            key={i}
+            className="h-4 w-4 text-[color:var(--gold)]"
+            fill="currentColor"
+            aria-hidden={true}
+          />
         ))}
       </div>
       <p className="mt-4 text-sm leading-relaxed text-[color:var(--fg)]/90">

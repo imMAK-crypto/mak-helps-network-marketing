@@ -143,7 +143,7 @@ export function ContactForm() {
         >
           {pending ? (
             <>
-              <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
+              <Loader2 className="h-4 w-4 animate-spin" aria-hidden={true} />
               Sending…
             </>
           ) : (
@@ -168,7 +168,7 @@ export function ContactForm() {
           >
             <div className="flex items-center gap-2">
               {state.ok ? (
-                <CheckCircle2 className="h-4 w-4" aria-hidden="true" />
+                <CheckCircle2 className="h-4 w-4" aria-hidden={true} />
               ) : null}
               <span>{state.message}</span>
             </div>

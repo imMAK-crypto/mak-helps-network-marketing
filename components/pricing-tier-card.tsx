@@ -46,7 +46,7 @@ export function PricingTierCard({
       <ul className="mt-6 grid gap-3 text-sm text-[color:var(--fg)]/90">
         {features.map((f) => (
           <li key={f} className="flex items-start gap-2">
-            <Check className="mt-0.5 h-4 w-4 text-[color:var(--gold)]" aria-hidden="true" />
+            <Check className="mt-0.5 h-4 w-4 text-[color:var(--gold)]" aria-hidden={true} />
             <span>{f}</span>
           </li>
         ))}

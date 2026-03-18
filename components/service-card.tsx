@@ -39,7 +39,8 @@ export function ServiceCard({
     >
       <div className="flex items-center gap-3">
         <div className="grid h-11 w-11 place-items-center rounded-2xl border border-[rgba(212,175,55,0.22)] bg-[rgba(212,175,55,0.08)]">
-          <Icon className="h-5 w-5 text-[color:var(--gold)]" aria-hidden="true" />
+          // `aria-hidden` must be boolean (not a string) for strict TS builds.
+          <Icon className="h-5 w-5 text-[color:var(--gold)]" aria-hidden={true} />
         </div>
         <div className="font-serif text-lg tracking-tight">{title}</div>
       </div>
