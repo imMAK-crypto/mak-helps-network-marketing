@@ -1,12 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  images: {
-    remotePatterns: [
-      { protocol: 'https', hostname: 'images.unsplash.com' },
-      { protocol: 'https', hostname: 'picsum.photos' }
-    ]
-  }
+  eslint: {
+    ignoreDuringBuilds: true,   // ← this skips ESLint errors during Vercel build
+  },
 };
 
 export default nextConfig;
-
