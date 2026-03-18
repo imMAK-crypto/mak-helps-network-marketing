@@ -47,8 +47,8 @@ export function ContactForm() {
   });
 
   React.useEffect(() => {
-    if (state?.ok) form.reset();
-    if (state?.fieldErrors) {
+    if (state && state.ok) form.reset();
+    if (state && !state.ok && state.fieldErrors) {
       for (const [k, v] of Object.entries(state.fieldErrors)) {
         if (v && v[0]) form.setError(k as keyof FormValues, { message: v[0] });
       }
