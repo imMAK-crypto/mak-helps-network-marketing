@@ -1,58 +1,29 @@
-import { NextResponse } from 'next/server';
+'use server';
+
 import { Resend } from 'resend';
-import { contactSchema } from '@/app/contact/actions';
 
-/**
- * Contact API route (optional external POST).
- *
- * Setup:
- * - Install deps: `npm install`
- * - Create `.env.local` with: RESEND_API_KEY=...
- * - Run: `npm run dev`
- */
-export async function POST(req: Request) {
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+export async function POST(request: Request) {
   try {
-    const json = await req.json();
-    const parsed = contactSchema.safeParse(json);
-    if (!parsed.success) {
-      return NextResponse.json(
-        { ok: false, message: 'Invalid payload', errors: parsed.error.flatten() },
-        { status: 400 }
-      );
-    }
-
-    const apiKey = process.env.RESEND_API_KEY;
-    if (!apiKey) {
-      return NextResponse.json(
-        { ok: false, message: 'Missing RESEND_API_KEY' },
-        { status: 500 }
-      );
-    }
-
-    const resend = new Resend(apiKey);
-    const input = parsed.data;
+    const { name, email, phone, service, message } = await request.json();
 
     await resend.emails.send({
-      from: 'M.A.K Helps <onboarding@resend.dev>',
-      to: ['hello@makhelps.com'],
-      replyTo: input.email,
-      subject: `New inquiry: ${input.service} — ${input.name}`,
-      text: [
-        `Name: ${input.name}`,
-        `Email: ${input.email}`,
-        `Phone: ${input.phone || '—'}`,
-        `Service: ${input.service}`,
-        '',
-        input.message
-      ].join('\n')
+      from: 'M.A.K Helps <hello@makhelps.com>',
+      to: 'pandatacaz76@gmail.com',     // ← CHANGE THIS TO YOUR EMAIL
+      subject: `New Contact Form: ${service}`,
+      html: `
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Phone:</strong> ${phone}</p>
+        <p><strong>Service:</strong> ${service}</p>
+        <p><strong>Message:</strong> ${message}</p>
+      `,
     });
 
-    return NextResponse.json({ ok: true, message: 'Sent' });
-  } catch {
-    return NextResponse.json(
-      { ok: false, message: 'Server error' },
-      { status: 500 }
-    );
+    return Response.json({ success: true }, { status: 200 });
+  } catch (error) {
+    console.error(error);
+    return Response.json({ success: false }, { status: 500 });
   }
 }
-
