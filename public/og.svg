@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#050505"/>
+      <stop offset="1" stop-color="#0b0b0b"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" x2="1">
+      <stop offset="0" stop-color="#d4af37" stop-opacity="0.9"/>
+      <stop offset="0.5" stop-color="#d4af37" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#d4af37" stop-opacity="0.9"/>
+    </linearGradient>
+    <filter id="noise">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .22 0"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <rect width="1200" height="630" filter="url(#noise)" opacity="0.8"/>
+  <rect x="84" y="90" width="1032" height="450" rx="28" fill="rgba(255,255,255,0.04)" stroke="rgba(212,175,55,0.25)"/>
+  <rect x="120" y="132" width="960" height="10" rx="5" fill="url(#gold)"/>
+  <text x="120" y="250" fill="#f4f4f4" font-family="Georgia, 'Times New Roman', serif" font-size="54" font-weight="700">
+    M.A.K Helps Network Marketing
+  </text>
+  <text x="120" y="318" fill="#a8a8a8" font-family="Inter, system-ui, -apple-system, Segoe UI, sans-serif" font-size="26">
+    Empowering Network Marketers with Luxury Digital Experiences That Convert
+  </text>
+  <text x="120" y="392" fill="#d4af37" font-family="Inter, system-ui, -apple-system, Segoe UI, sans-serif" font-size="22" letter-spacing="0.12em">
+    KOZHIKODE " KERALA " INDIA
+  </text>
+</svg>
+
